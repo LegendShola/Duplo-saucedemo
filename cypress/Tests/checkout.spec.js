@@ -1,32 +1,35 @@
-import loginPage from '../Pages/loginPage';
-import inventoryPage from '../Pages/inventoryPage';
-import cartPage from '../Pages/cartPage';
-import checkoutPage from '../Pages/checkoutPage';
-const data = require('../fixtures/testData.json'); // Import the testData
+import loginPage from '../Pages/loginPage'; // Importing the LoginPage object
+import inventoryPage from '../Pages/inventoryPage'; // Importing the InventoryPage object
+import cartPage from '../Pages/cartPage'; // Importing the CartPage object
+import checkoutPage from '../Pages/checkoutPage'; // Importing the CheckoutPage object
+const data = require('../fixtures/testData.json'); // Import the test data from a JSON file
 
-const firstName = data.firstName;
-const lastName = data.lastName;
-const postalCode = data.postalCode;
+// Extracting test data from the fixture
+const firstName = data.firstName; // Assign first name from test data
+const lastName = data.lastName; // Assign last name from test data
+const postalCode = data.postalCode; // Assign postal code from test data
 
 describe('Checkout Tests', () => {
     before(() => {
-        cy.clearCookies(); // Clear cookies before each test
-        cy.clearLocalStorage(); // Clear local storage before each test
+        // Setup actions to be executed once before all tests in this suite
+        cy.clearCookies(); // Clear cookies to ensure a fresh session
+        cy.clearLocalStorage(); // Clear local storage for a clean state
         
         // Test credentials from fixture data
-        const username = data.username;
-        const password = data.password;
+        const username = data.username; // Assign username from test data
+        const password = data.password; // Assign password from test data
 
-        cy.visit('');
-        loginPage.login(username, password);
-        inventoryPage.addToCart('Sauce Labs Backpack');
-        cartPage.viewCart();
+        cy.visit(''); // Visit the base URL (defined in Cypress config)
+        loginPage.login(username, password); // Log in using the test credentials
+        inventoryPage.addToCart('Sauce Labs Backpack'); // Add an item to the cart
+        cartPage.viewCart(); // Navigate to the cart
     });
 
+    // Test case to complete the checkout process
     it('Should complete the checkout process', () => {
-        checkoutPage.startCheckout();
-        checkoutPage.enterCheckoutInfo(firstName, lastName, postalCode);
-        checkoutPage.verifyTotalPrice();
-        checkoutPage.finishCheckout();
+        checkoutPage.startCheckout(); // Start the checkout process
+        checkoutPage.enterCheckoutInfo(firstName, lastName, postalCode); // Enter checkout information
+        checkoutPage.verifyTotalPrice(); // Verify the total price is correct
+        checkoutPage.finishCheckout(); // Complete the checkout process
     });
 });

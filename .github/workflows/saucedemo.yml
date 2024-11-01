@@ -71,11 +71,11 @@ jobs:
       - name: Run Cypress tests with Allure on ${{ matrix.browser }}
         run: |
           sudo apt-get install -y xvfb
-          if [ "${{ matrix.browser }}" = "edge" ]; then
-            sleep 10
-          elif [ "${{ matrix.browser }}" = "electron" ]; then
-            sleep 10
-          fi
+          # if [ "${{ matrix.browser }}" = "edge" ]; then
+          #   sleep 10
+          # elif [ "${{ matrix.browser }}" = "electron" ]; then
+          #   sleep 10
+          # fi
           xvfb-run --auto-servernum --server-args="-screen 0 1280x1024x24" \
           npx cypress run --browser ${{ matrix.browser }} --env allure=true,allureResultsPath=allure-results || true
           npx allure generate allure-results --clean --output cypress/reports/allure-report
