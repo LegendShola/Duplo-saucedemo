@@ -1,6 +1,7 @@
 import loginPage from '../Pages/loginPage';
 import inventoryPage from '../Pages/inventoryPage';
 import cartPage from '../Pages/cartPage';
+import logoutPage from '../Pages/logoutPage'; // Importing the LogoutPage object
 const data = require('../fixtures/testData.json'); // Import the test data from a JSON file
 
 describe('Cart Tests', () => {
@@ -17,6 +18,13 @@ describe('Cart Tests', () => {
         loginPage.login(username, password); // Perform login with the test credentials
     });
 
+    // Tear down to run after each test
+    afterEach(() => {
+        logoutPage.logout(); // Perform logout action
+        cy.clearCookies(); // Clear cookies to ensure logout
+        cy.clearLocalStorage(); // Clear local storage to reset state
+    });
+
     // Test case to check if items are displayed in the cart
     it('Should display items in cart', () => {
         inventoryPage.addToCart('Sauce Labs Backpack'); // Add an item to the cart
@@ -25,7 +33,7 @@ describe('Cart Tests', () => {
     });
 
     // Test case to check if an item can be removed from the cart
-    xit('Should remove an item from cart', () => {
+    it('Should remove an item from cart', () => {
         inventoryPage.addToCart('Sauce Labs Backpack'); // Add the item to the cart
         cartPage.viewCart(); // Navigate to the cart
         cartPage.removeItem(); // Remove the item from the cart
