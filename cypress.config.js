@@ -10,12 +10,12 @@ module.exports = defineConfig({
         resultsDir: "allure-results",
       });
 
-      // // Add a custom task to handle `reportAllureCypressSpecMessages` if needed
-      // on('task', {
-      //   reportAllureCypressSpecMessages: () => {
-      //     return null; // Ensure task is handled
-      //   },
-      // });
+      // Add a custom task to handle `reportAllureCypressSpecMessages` if needed
+      on('task', {
+        reportAllureCypressSpecMessages: () => {
+          return null; // Ensure task is handled
+        },
+      });
       
       return config;
     },
