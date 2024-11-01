@@ -8,15 +8,7 @@ module.exports = defineConfig({
       allureWriter(on, config);
       allureCypress(on, config, {
         resultsDir: "allure-results",
-      });
-
-      // // Add a custom task to handle `reportAllureCypressSpecMessages` if needed
-      // on('task', {
-      //   reportAllureCypressSpecMessages: () => {
-      //     return null; // Ensure task is handled
-      //   },
-      // });
-      
+      });      
       return config;
     },
     specPattern: 'cypress/Tests/**/*.spec.js',

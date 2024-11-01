@@ -68,6 +68,9 @@ jobs:
           mkdir -p allure-results
           mkdir -p cypress/reports/mochawesome
 
+      - name: Clear Allure Results
+        run: rm -rf allure-results/*        
+
       - name: Run Cypress tests with Allure on ${{ matrix.browser }}
         run: |
           sudo apt-get install -y xvfb

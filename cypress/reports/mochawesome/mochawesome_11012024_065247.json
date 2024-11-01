@@ -1,0 +1,92 @@
+{
+  "stats": {
+    "suites": 0,
+    "tests": 1,
+    "passes": 0,
+    "pending": 0,
+    "failures": 1,
+    "start": "2024-11-01T05:52:47.098Z",
+    "end": "2024-11-01T05:52:47.505Z",
+    "duration": 407,
+    "testsRegistered": 1,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "7d630e07-6cd3-459c-a9e9-ceec417221b8",
+      "title": "",
+      "fullFile": "cypress\\Tests\\cart.spec.js",
+      "file": "cypress\\Tests\\cart.spec.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [
+        {
+          "title": "An uncaught error was detected outside of a test",
+          "fullTitle": "An uncaught error was detected outside of a test",
+          "timedOut": null,
+          "duration": 310,
+          "state": "failed",
+          "speed": null,
+          "pass": false,
+          "fail": true,
+          "pending": false,
+          "context": null,
+          "code": "throw err;",
+          "err": {
+            "message": "ReferenceError: The following error originated from your test code, not from Cypress.\n\n  > xafterEach is not defined\n\nWhen Cypress detects uncaught errors originating from your test code it will automatically fail the current test.\n\nCypress could not associate this error to any specific test.\n\nWe dynamically generated a new test to display this failure.",
+            "estack": "ReferenceError: The following error originated from your test code, not from Cypress.\n\n  > xafterEach is not defined\n\nWhen Cypress detects uncaught errors originating from your test code it will automatically fail the current test.\n\nCypress could not associate this error to any specific test.\n\nWe dynamically generated a new test to display this failure.\n    at Suite.eval (webpack://duplo-saucedemo/./cypress/Tests/cart.spec.js:22:4)\n    at Kt (webpack://duplo-saucedemo/./node_modules/allure-cypress/dist/cjs/index.js:1:16050)\n    at eval (webpack://duplo-saucedemo/./node_modules/allure-cypress/dist/cjs/index.js:1:16165)\n    at eval (webpack://duplo-saucedemo/./cypress/Tests/cart.spec.js:7:0)\n    at eval (https://www.saucedemo.com/__cypress/tests?p=cypress\\Tests\\cart.spec.js:287:3)\n    at eval (https://www.saucedemo.com/__cypress/tests?p=cypress\\Tests\\cart.spec.js:289:12)\n    at eval (<anonymous>)",
+            "diff": null
+          },
+          "uuid": "07f91c8d-7819-4904-bd8d-a6e0db5397f8",
+          "parentUUID": "7d630e07-6cd3-459c-a9e9-ceec417221b8",
+          "isHook": false,
+          "skipped": false
+        }
+      ],
+      "suites": [],
+      "passes": [],
+      "failures": [
+        "07f91c8d-7819-4904-bd8d-a6e0db5397f8"
+      ],
+      "pending": [],
+      "skipped": [],
+      "duration": 310,
+      "root": true,
+      "rootEmpty": false,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": true,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports/mochawesome",
+        "overwrite": false,
+        "html": true,
+        "json": true,
+        "quiet": true,
+        "timestamp": "mmddyyyy_HHMMss"
+      },
+      "version": "6.2.0"
+    }
+  }
+}

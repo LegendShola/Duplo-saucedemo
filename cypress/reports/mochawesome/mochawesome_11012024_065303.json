@@ -1,0 +1,107 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2024-11-01T05:53:01.662Z",
+    "end": "2024-11-01T05:53:03.618Z",
+    "duration": 1956,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "72ae507a-f792-4771-a3f5-2cfd1d0e6424",
+      "title": "",
+      "fullFile": "cypress\\Tests\\login.spec.js",
+      "file": "cypress\\Tests\\login.spec.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "e346577e-d1c8-4f02-9862-73bd2857b157",
+          "title": "Login Tests",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Should log in successfully",
+              "fullTitle": "Login Tests Should log in successfully",
+              "timedOut": null,
+              "duration": 1710,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "_loginPage.default.login(username, password); // Perform login with test credentials\ncy.url().should('include', '/inventory.html'); // Verify the URL contains '/inventory.html' after logging in",
+              "err": {},
+              "uuid": "9ab7f750-155c-4192-b256-174353a22dc3",
+              "parentUUID": "e346577e-d1c8-4f02-9862-73bd2857b157",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "9ab7f750-155c-4192-b256-174353a22dc3"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 1710,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": true,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports/mochawesome",
+        "overwrite": false,
+        "html": true,
+        "json": true,
+        "quiet": true,
+        "timestamp": "mmddyyyy_HHMMss"
+      },
+      "version": "6.2.0"
+    }
+  }
+}

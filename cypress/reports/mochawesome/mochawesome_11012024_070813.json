@@ -1,0 +1,126 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 2,
+    "passes": 2,
+    "pending": 0,
+    "failures": 0,
+    "start": "2024-11-01T06:08:05.348Z",
+    "end": "2024-11-01T06:08:13.809Z",
+    "duration": 8461,
+    "testsRegistered": 2,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "6d0bc000-690e-4fe4-988a-071c37de5254",
+      "title": "",
+      "fullFile": "cypress\\Tests\\cart.spec.js",
+      "file": "cypress\\Tests\\cart.spec.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "eae1c9c0-06c6-4275-a5bf-fc4db9767162",
+          "title": "Cart Tests",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Should display items in cart",
+              "fullTitle": "Cart Tests Should display items in cart",
+              "timedOut": null,
+              "duration": 5624,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "_inventoryPage.default.addToCart('Sauce Labs Backpack'); // Add an item to the cart\n_cartPage.default.viewCart(); // Navigate to the cart\n_cartPage.default.verifyCartItems(); // Verify that the items in the cart are visible",
+              "err": {},
+              "uuid": "ae6b8b2c-c5ee-49bd-9f58-9c4b060606f0",
+              "parentUUID": "eae1c9c0-06c6-4275-a5bf-fc4db9767162",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Should remove an item from cart",
+              "fullTitle": "Cart Tests Should remove an item from cart",
+              "timedOut": null,
+              "duration": 2435,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "_inventoryPage.default.addToCart('Sauce Labs Backpack'); // Add the item to the cart\n_cartPage.default.viewCart(); // Navigate to the cart\n_cartPage.default.removeItem(); // Remove the item from the cart\n// Verify that the item has been successfully removed\n_cartPage.default.verifyItemRemoval(); // Assert that the item no longer exists in the cart",
+              "err": {},
+              "uuid": "5d0f69cc-ce3a-4f3d-a758-8444a7b0f3c0",
+              "parentUUID": "eae1c9c0-06c6-4275-a5bf-fc4db9767162",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "ae6b8b2c-c5ee-49bd-9f58-9c4b060606f0",
+            "5d0f69cc-ce3a-4f3d-a758-8444a7b0f3c0"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 8059,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": true,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports/mochawesome",
+        "overwrite": false,
+        "html": true,
+        "json": true,
+        "quiet": true,
+        "timestamp": "mmddyyyy_HHMMss"
+      },
+      "version": "6.2.0"
+    }
+  }
+}

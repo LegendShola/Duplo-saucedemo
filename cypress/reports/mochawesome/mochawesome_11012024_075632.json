@@ -1,0 +1,107 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2024-11-01T06:56:29.781Z",
+    "end": "2024-11-01T06:56:32.318Z",
+    "duration": 2537,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "b7b98524-faa8-4a7c-99df-641dc097ef9e",
+      "title": "",
+      "fullFile": "cypress\\Tests\\logout.spec.js",
+      "file": "cypress\\Tests\\logout.spec.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "ed10fd03-80d6-4b8a-a631-0f7c3bfea48a",
+          "title": "Logout Tests",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Should log out successfully",
+              "fullTitle": "Logout Tests Should log out successfully",
+              "timedOut": null,
+              "duration": 2434,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "_logoutPage.default.logout(); // Perform logout action\n_logoutPage.default.verifyLogout(); // Verify that logout was successful by checking the URL",
+              "err": {},
+              "uuid": "d40bb6c5-c917-487e-861b-ea52ab19368a",
+              "parentUUID": "ed10fd03-80d6-4b8a-a631-0f7c3bfea48a",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "d40bb6c5-c917-487e-861b-ea52ab19368a"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 2434,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": true,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports/mochawesome",
+        "overwrite": false,
+        "html": true,
+        "json": true,
+        "quiet": true,
+        "timestamp": "mmddyyyy_HHMMss"
+      },
+      "version": "6.2.0"
+    }
+  }
+}

@@ -11,6 +11,13 @@ class CartPage {
         cy.get('.cart_item').should('be.visible');
     }
 
+    returnHome() {
+        // Clicks the burger menu button to open the side menu
+        cy.get('#react-burger-menu-btn').click();
+        // Clicks the All items menu
+        cy.get('#inventory_sidebar_link').click();
+    }
+
     // Method to remove an item from the cart
     removeItem() {
         // Clicks the remove button for the specified item (Sauce Labs Backpack)

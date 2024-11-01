@@ -1,0 +1,107 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2024-11-01T06:05:29.835Z",
+    "end": "2024-11-01T06:05:44.796Z",
+    "duration": 14961,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "1149548d-9e85-47aa-9d4c-1c075bc94bfb",
+      "title": "",
+      "fullFile": "cypress\\Tests\\inventory.spec.js",
+      "file": "cypress\\Tests\\inventory.spec.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "759b5446-bd2a-48cd-b5ad-d8ffac8ffb37",
+          "title": "Inventory Tests",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Should display inventory list",
+              "fullTitle": "Inventory Tests Should display inventory list",
+              "timedOut": null,
+              "duration": 12980,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "_inventoryPage.default.verifyInventoryList(); // Verify the inventory list is displayed\n// Filter items by \"Price (low to high)\"\n_inventoryPage.default.filterProducts('lohi'); // Apply low to high price filter\n// Filter items by \"Name (Z to A)\"\n_inventoryPage.default.filterProducts('za'); // Apply Z to A name filter\n// Add an item to the cart\n_inventoryPage.default.addToCart('Sauce Labs Backpack'); // Add the specified item to the cart",
+              "err": {},
+              "uuid": "0e988355-8b83-41c0-84c1-cb3aaa0f50ba",
+              "parentUUID": "759b5446-bd2a-48cd-b5ad-d8ffac8ffb37",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "0e988355-8b83-41c0-84c1-cb3aaa0f50ba"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 12980,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": true,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports/mochawesome",
+        "overwrite": false,
+        "html": true,
+        "json": true,
+        "quiet": true,
+        "timestamp": "mmddyyyy_HHMMss"
+      },
+      "version": "6.2.0"
+    }
+  }
+}
