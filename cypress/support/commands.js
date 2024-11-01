@@ -8,6 +8,9 @@
 // https://on.cypress.io/custom-commands
 // ***********************************************
 //
+
+import '@shelex/cypress-allure-plugin';
+
 //
 // -- This is a parent command --
 // Cypress.Commands.add('login', (email, password) => { ... })

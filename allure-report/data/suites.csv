@@ -1,0 +1,7 @@
+"DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
+"","1599","Should log in successfully","Login Tests","Fri Nov 01 00:04:57 WAT 2024","passed","Fri Nov 01 00:04:59 WAT 2024","","","",""
+"","2031","Should display inventory list","Inventory Tests","Fri Nov 01 00:04:53 WAT 2024","passed","Fri Nov 01 00:04:55 WAT 2024","","","",""
+"","3383","Should complete the checkout process","Checkout Tests","Fri Nov 01 00:04:48 WAT 2024","passed","Fri Nov 01 00:04:52 WAT 2024","","","",""
+"","3951","Should display items in cart","Cart Tests","Fri Nov 01 00:04:40 WAT 2024","passed","Fri Nov 01 00:04:44 WAT 2024","","","",""
+"","1804","Should remove an item from cart","Cart Tests","Fri Nov 01 00:04:45 WAT 2024","passed","Fri Nov 01 00:04:46 WAT 2024","","","",""
+"","2148","Should log out successfully","Logout Tests","Fri Nov 01 00:05:01 WAT 2024","passed","Fri Nov 01 00:05:03 WAT 2024","","","",""
