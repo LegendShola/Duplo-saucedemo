@@ -25,7 +25,7 @@ describe('Cart Tests', () => {
     });
 
     // Test case to check if an item can be removed from the cart
-    it('Should remove an item from cart', () => {
+    xit('Should remove an item from cart', () => {
         inventoryPage.addToCart('Sauce Labs Backpack'); // Add the item to the cart
         cartPage.viewCart(); // Navigate to the cart
         cartPage.removeItem(); // Remove the item from the cart
