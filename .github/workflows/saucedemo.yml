@@ -52,7 +52,7 @@ jobs:
         run: npm ci
 
       - name: Ensure Cypress binary permissions
-        run: chmod +x ${{ env.CYPRESS_CACHE_FOLDER }}/13.15.0/Cypress/Cypress
+        run: chmod +x ${{ env.CYPRESS_CACHE_FOLDER }}/13.15.1/Cypress/Cypress
 
       - name: Install Cypress
         run: sudo npx cypress install
