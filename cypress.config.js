@@ -19,7 +19,7 @@ module.exports = defineConfig({
       
       return config;
     },
-    specPattern: 'cypress/tests/**/*.spec.js',
+    specPattern: 'cypress/Tests/**/*.spec.js',
     baseUrl: 'https://www.saucedemo.com',
     viewportWidth: 1280,
     viewportHeight: 720,
