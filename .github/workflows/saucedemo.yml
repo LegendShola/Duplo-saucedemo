@@ -7,27 +7,43 @@ on:
   pull_request:
     branches:
       - main
-  # schedule:
-    # Runs the workflow every 1 hour
-    # - cron: '0 */1 * * *'
+  schedule:
+    - cron: '0 */3 * * *'
 
 jobs:
   cypress-run:
     runs-on: ubuntu-latest
 
+    strategy:
+      fail-fast: false
+      matrix:
+        browser: [chrome, edge, electron]
+
+    env:
+      NODE_VERSION: '22'
+      CYPRESS_CACHE_FOLDER: ~/.cache/Cypress
+
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '18'
+          node-version: ${{ env.NODE_VERSION }}
+
+      - name: Cache Node modules
+        uses: actions/cache@v4
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
 
       - name: Cache Cypress binary
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
-          path: ~/.cache/Cypress
+          path: ${{ env.CYPRESS_CACHE_FOLDER }}
           key: ${{ runner.os }}-cypress-${{ hashFiles('package-lock.json') }}
           restore-keys: |
             ${{ runner.os }}-cypress-
@@ -35,10 +51,130 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Run Cypress tests
-        run: npx cypress run
+      - name: Ensure Cypress binary permissions
+        run: chmod +x ${{ env.CYPRESS_CACHE_FOLDER }}/13.15.1/Cypress/Cypress
 
-      - name: Generate mochawesome report
+      - name: Install Cypress
+        run: sudo npx cypress install
+
+      - name: Clear Cypress Cache
+        run: npx cypress cache clear
+
+      - name: Reinstall Cypress
+        run: npx cypress install
+
+      - name: Create reports directory
         run: |
-          npx mochawesome-merge cypress/results/*.json > cypress/results/report.json
-          npx mochawesome-report-generator cypress/results/report.json
+          mkdir -p allure-results
+          mkdir -p cypress/reports/mochawesome
+
+      - name: Run Cypress tests with Allure on ${{ matrix.browser }}
+        run: |
+          sudo apt-get install -y xvfb
+          if [ "${{ matrix.browser }}" = "edge" ]; then
+            sleep 60
+          elif [ "${{ matrix.browser }}" = "electron" ]; then
+            sleep 120
+          fi
+          xvfb-run --auto-servernum --server-args="-screen 0 1280x1024x24" \
+          npx cypress run --browser ${{ matrix.browser }} --env allure=true,allureResultsPath=allure-results || true
+          npx allure generate allure-results --clean --output cypress/reports/allure-report
+
+      - name: Check for Allure results
+        run: |
+          echo "Checking for Allure results files..."
+          if ls allure-results/*.json 1> /dev/null 2>&1; then
+            echo "Allure results files found:"
+            ls -l allure-results/*.json
+          else
+            echo "No Allure results found."
+            exit 1
+          fi
+
+      - name: Upload Allure Results
+        uses: actions/upload-artifact@v4
+        with:
+          name: allure-results-${{ matrix.browser }}
+          path: allure-results
+          if-no-files-found: warn
+          compression-level: 6
+          overwrite: false
+          include-hidden-files: false
+
+      - name: Archive Allure Report
+        uses: actions/upload-artifact@v4
+        with:
+          name: allure-report-${{ matrix.browser }}
+          path: cypress/reports/allure-report
+
+      - name: Archive MochaAwesome Reports
+        uses: actions/upload-artifact@v4
+        with:
+          name: mochawesome-report-${{ matrix.browser }}
+          path: cypress/reports/mochawesome
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  # New job to merge Allure results from all browsers
+  merge-allure-reports:
+    needs: cypress-run
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download Allure results for Chrome
+        uses: actions/download-artifact@v4
+        with:
+          name: allure-results-chrome
+          path: allure-results/chrome
+
+      - name: Download Allure results for Edge
+        uses: actions/download-artifact@v4
+        with:
+          name: allure-results-edge
+          path: allure-results/edge
+
+      - name: Download Allure results for Electron
+        uses: actions/download-artifact@v4
+        with:
+          name: allure-results-electron
+          path: allure-results/electron
+
+      - name: List contents of each Allure results directory
+        run: |
+          echo "Chrome Allure Results:"
+          ls allure-results/chrome || echo "No files in chrome"
+          echo "Edge Allure Results:"
+          ls allure-results/edge || echo "No files in edge"
+          echo "Electron Allure Results:"
+          ls allure-results/electron || echo "No files in electron"
+
+      - name: Merge Allure results from all browsers
+        run: |
+          mkdir -p merged-allure-results
+          cp -r allure-results/chrome/. merged-allure-results/
+          cp -r allure-results/edge/. merged-allure-results/
+          cp -r allure-results/electron/. merged-allure-results/
+          echo "Merged Allure Results Contents:"
+          ls merged-allure-results
+
+      - name: Install Allure Commandline
+        run: npm install -g allure-commandline --save-exact
+
+      - name: Upload Merged Allure Results
+        uses: actions/upload-artifact@v4
+        with:
+          name: merged-allure-results
+          path: merged-allure-results
+          if-no-files-found: warn
+          compression-level: 6
+          overwrite: false
+          include-hidden-files: false
+          
+      - name: Generate Merged Allure Report
+        run: |
+          npx allure generate merged-allure-results --clean -o merged-allure-report
+
+      - name: Upload Merged Allure Report
+        uses: actions/upload-artifact@v4
+        with:
+          name: merged-allure-report
+          path: merged-allure-report
