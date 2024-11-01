@@ -72,9 +72,9 @@ jobs:
         run: |
           sudo apt-get install -y xvfb
           if [ "${{ matrix.browser }}" = "edge" ]; then
-            sleep 10
+            sleep 60
           elif [ "${{ matrix.browser }}" = "electron" ]; then
-            sleep 10
+            sleep 120
           fi
           xvfb-run --auto-servernum --server-args="-screen 0 1280x1024x24" \
           npx cypress run --browser ${{ matrix.browser }} --env allure=true,allureResultsPath=allure-results || true
