@@ -22,16 +22,17 @@ describe('Login Tests', () => {
     const username = data.username; // Assign username from test data
     const password = data.password; // Assign password from test data
 
-    before(() => {
-        // Setup actions to be executed once before all tests in this suite
-        cy.clearCookies(); // Clear cookies to ensure a fresh session
-        cy.clearLocalStorage(); // Clear local storage for a clean state
+    // before(() => {
+    //     // Setup actions to be executed once before all tests in this suite
+    //     cy.clearCookies(); // Clear cookies to ensure a fresh session
+    //     cy.clearLocalStorage(); // Clear local storage for a clean state
         
-        loginPage.visit(); // Visit the login page before running tests
-    });
+    //     loginPage.visit(); // Visit the login page before running tests
+    // });
 
     // Test case to verify successful login
     it('Should log in successfully', () => {
+        loginPage.visit(); // Visit the login page before running tests
         loginPage.login(username, password); // Perform login with test credentials
         cy.url().should('include', '/inventory.html'); // Assert the URL contains '/inventory.html' after logging in
     });
