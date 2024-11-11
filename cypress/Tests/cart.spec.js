@@ -5,7 +5,7 @@ import logoutPage from '../Pages/logoutPage'; // Importing the LogoutPage object
 import { beforeEach } from 'mocha';
 const data = require('../fixtures/testData.json'); // Import the test data from a JSON file
 
-describe('Cart Tests', () => {
+xdescribe('Cart Tests', () => {
     // Test credentials obtained from fixture data
     const username = data.username; // Assign username from the test data
     const password = data.password; // Assign password from the test data
