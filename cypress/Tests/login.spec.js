@@ -22,7 +22,7 @@ describe('Login Tests', () => {
     const username = data.username; // Assign username from test data
     const password = data.password; // Assign password from test data
 
-    before(() => {
+    beforeEach(() => {
         // Setup actions to be executed once before all tests in this suite
         cy.clearCookies(); // Clear cookies to ensure a fresh session
         cy.clearLocalStorage(); // Clear local storage for a clean state
