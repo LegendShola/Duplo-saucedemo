@@ -1,17 +1,15 @@
 import loginPage from '../Pages/loginPage';
 import inventoryPage from '../Pages/inventoryPage';
 import cartPage from '../Pages/cartPage';
-import logoutPage from '../Pages/logoutPage'; // Importing the LogoutPage object
-import { beforeEach } from 'mocha';
 const data = require('../fixtures/testData.json'); // Import the test data from a JSON file
 
-xdescribe('Cart Tests', () => {
+describe('Cart Tests', () => {
     // Test credentials obtained from fixture data
     const username = data.username; // Assign username from the test data
     const password = data.password; // Assign password from the test data
 
     // Setup to run before each test
-    beforeEach(() => {
+    before(() => {
         cy.clearCookies(); // Clear cookies before each test to ensure a clean session
         cy.clearLocalStorage(); // Clear local storage before each test for fresh state
 
