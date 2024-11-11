@@ -11,7 +11,7 @@ describe('Cart Tests', () => {
     const password = data.password; // Assign password from the test data
 
     // Setup to run before each test
-    before(() => {
+    beforeEach(() => {
         cy.clearCookies(); // Clear cookies before each test to ensure a clean session
         cy.clearLocalStorage(); // Clear local storage before each test for fresh state
 
