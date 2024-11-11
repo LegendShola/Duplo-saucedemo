@@ -29,6 +29,8 @@ describe('Cart Tests', () => {
 
     // Test case to check if an item can be removed from the cart
     it('Should remove an item from cart', () => {
+        cy.visit(''); // Visit the base URL (defined in Cypress config)
+        loginPage.login(username, password); // Perform login with the test credentials
         inventoryPage.addToCart('Sauce Labs Backpack'); // Add an item to the cart
         cartPage.viewCart(); // Navigate to the cart
         cartPage.removeItem(); // Remove the item from the cart
