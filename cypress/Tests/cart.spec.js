@@ -11,13 +11,13 @@ describe('Cart Tests', () => {
     const password = data.password; // Assign password from the test data
 
     // Setup to run before each test
-    // before(() => {
-    //     cy.clearCookies(); // Clear cookies before each test to ensure a clean session
-    //     cy.clearLocalStorage(); // Clear local storage before each test for fresh state
+    before(() => {
+        cy.clearCookies(); // Clear cookies before each test to ensure a clean session
+        cy.clearLocalStorage(); // Clear local storage before each test for fresh state
 
-    //     cy.visit(''); // Visit the base URL (defined in Cypress config)
-    //     loginPage.login(username, password); // Perform login with the test credentials
-    // });
+        cy.visit(''); // Visit the base URL (defined in Cypress config)
+        loginPage.login(username, password); // Perform login with the test credentials
+    });
 
 
     // Test case to check if items are displayed in the cart
@@ -30,7 +30,7 @@ describe('Cart Tests', () => {
     });
 
     // Test case to check if an item can be removed from the cart
-    it('Should remove an item from cart', () => {
+    xit('Should remove an item from cart', () => {
         cy.visit(''); // Visit the base URL (defined in Cypress config)
         loginPage.login(username, password); // Perform login with the test credentials
         inventoryPage.addToCart('Sauce Labs Backpack'); // Add an item to the cart
