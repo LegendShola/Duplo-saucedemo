@@ -2,7 +2,7 @@ import loginPage from '../Pages/loginPage';
 import inventoryPage from '../Pages/inventoryPage';
 import cartPage from '../Pages/cartPage';
 import logoutPage from '../Pages/logoutPage'; // Importing the LogoutPage object
-// import { beforeEach } from 'mocha';
+import { beforeEach } from 'mocha';
 const data = require('../fixtures/testData.json'); // Import the test data from a JSON file
 
 describe('Cart Tests', () => {
