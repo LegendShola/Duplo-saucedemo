@@ -24,15 +24,16 @@ describe('Cart Tests', () => {
     it('Should display items in cart', () => {
         inventoryPage.addToCart('Sauce Labs Backpack'); // Add an item to the cart
         cartPage.viewCart(); // Navigate to the cart
-        cartPage.verifyCartItems(); // Verify that the items in the cart are visible
+        cartPage.verifyCartItems(); // Assert that the items in the cart are visible
     });
 
     // Test case to check if an item can be removed from the cart
-    xit('Should remove an item from cart', () => {
+    it('Should remove an item from cart', () => {
         inventoryPage.addToCart('Sauce Labs Backpack'); // Add an item to the cart
         cartPage.viewCart(); // Navigate to the cart
         cartPage.removeItem(); // Remove the item from the cart
         // Verify that the item has been successfully removed
         cartPage.verifyItemRemoval(); // Assert that the item no longer exists in the cart
     });
+
 });

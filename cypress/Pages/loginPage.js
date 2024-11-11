@@ -30,6 +30,25 @@ class LoginPage {
         this.enterPassword(password);
         this.submit();
     }
+
+    assertInvalidCredentials() {
+        cy.get('[data-test="error"]')
+            .should('be.visible')
+            .and('contain', 'Epic sadface: Username and password do not match any user in this service');
+    }
+
+    assertSQLInjection() {
+        cy.url().should('not.include', '/inventory.html');
+        cy.get('[data-test="error"]')
+            .should('be.visible')
+            .and('contain', 'Epic sadface: Username and password do not match any user in this service');
+    }
+
+    assertRefreshState() {
+        cy.url().should('include', '/inventory.html');
+        cy.get('.inventory_list').should('be.visible');
+        cy.get('#react-burger-menu-btn').should('be.visible');
+    }
 }
 
 // Exports an instance of LoginPage for use in tests

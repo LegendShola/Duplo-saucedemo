@@ -18,6 +18,7 @@ class InventoryPage {
         // Selects a sorting option from the dropdown menu
         cy.get('.product_sort_container').select(option);
     }
+
 }
 
 // Exports an instance of InventoryPage for use in tests
